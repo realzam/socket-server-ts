@@ -12,7 +12,11 @@ class Server {
         private app = express(),
         private port = process.env.PORT,
         private server = http.createServer(app),
-        public io = new sockio.Server(server),
+        public io = new sockio.Server(server, {
+            cors: {
+                origin: '*',
+            }
+        }),
     ) {
         this.execute()
     }
