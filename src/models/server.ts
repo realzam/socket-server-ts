@@ -3,7 +3,7 @@ import * as http from 'http';
 import * as sockio from "socket.io";
 import * as path from 'path';
 import Sockets from './Sockets';
-
+import cors from 'cors'
 
 class Server {
 
@@ -28,6 +28,9 @@ class Server {
 
     public middlewares() {
         this.app.use(express.static(path.resolve(__dirname, '..', 'public')));
+        //CORS
+        this.app.use(cors())
+
 
     }
 
